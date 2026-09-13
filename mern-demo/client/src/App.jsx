@@ -18,6 +18,7 @@ function App() {
         try {
             const response = await axios.get(API_URL);
             setStudents(response.data);
+            console.log(response);
         } catch (err) {
             setError('Không thể tải danh sách sinh viên');
             console.error(err);

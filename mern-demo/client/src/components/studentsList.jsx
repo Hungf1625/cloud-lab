@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const StudentList = ({ students, loading, onDeleteStudent, onUpdateStudent }) => {
+const StudentList = ({ students = [], loading, onDeleteStudent, onUpdateStudent }) => {
     const [editingId, setEditingId] = useState(null);
     const [editData, setEditData] = useState({
         studentId: '',

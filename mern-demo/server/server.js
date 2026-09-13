@@ -2,9 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors'); // Thêm CORS
 const app = express();
-const connectDB = require('../config/database.js');
+const connectDB = require('./config/database.js');
 const port = process.env.PORT || 5000;
-const student = require('../server/models/student.js');
+const student = require('./models/student.js');
 
 // Middleware
 app.use(cors()); // Cho phép React app gọi API
