@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: mern-backend-container
+    ports:
+      - "5000:5000"
+    environment:
+      MONGODB_URI: "mongodb+srv://hungtranthien1_db_user:0TaFKXRFsE09SVWJ@cluster0.thwce0e.mongodb.net/?appName=Cluster0"
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: mern-frontend-container
+    ports:
+      - "5173:5173"
