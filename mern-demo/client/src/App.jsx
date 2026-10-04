@@ -72,7 +72,7 @@ function App() {
 
     return (
         <div className="app">
-            <h1>📚 Quản lý Sinh viên</h1>
+            <h1>📚 Quản lý Sinh viên 2.0</h1>
             
             <AddStudentForm onAddStudent={addStudent} />
             
@@ -82,7 +82,7 @@ function App() {
                 students={students} 
                 loading={loading}
                 onDeleteStudent={deleteStudent}
-                onUpdateStudent={updateStudent}  // Thêm prop này
+                onUpdateStudent={updateStudent}  
             />
         </div>
     );
