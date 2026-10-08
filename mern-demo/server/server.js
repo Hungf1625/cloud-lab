@@ -6,8 +6,24 @@ const connectDB = require('./config/database.js');
 const port = process.env.PORT || 5000;
 const student = require('./models/student.js');
 
-// Middleware
-app.use(cors()); // Cho phép React app gọi API
+// Cấu hình CORS linh hoạt cho Production
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'http://localhost:3000'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production') {
+      callback(null, true);
+    } else {
+      callback(null, true); // Hoặc truyền origin cụ thể
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
