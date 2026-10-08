@@ -4,7 +4,11 @@ import './App.css';
 import StudentList from './components/studentsList';
 import AddStudentForm from './components/addStudentForm';
 
-const API_URL = '/api/students';
+const BASE_URL = import.meta.env.DEV 
+  ? ''  
+  : import.meta.env.VITE_API_URL; 
+
+const API_URL = `${BASE_URL}/api/students`;
 
 function App() {
     const [students, setStudents] = useState([]);

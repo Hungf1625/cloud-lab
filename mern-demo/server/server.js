@@ -10,16 +10,26 @@ const student = require('./models/student.js');
 const allowedOrigins = [
   process.env.CLIENT_URL,
   'http://localhost:5173',
-  'http://localhost:3000'
-];
+  'http://localhost:3000',
+  'https://mern-frontend-236356.onrender.com'  
+].filter(Boolean);
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production') {
-      callback(null, true);
-    } else {
-      callback(null, true); // Hoặc truyền origin cụ thể
+    if (!origin) return callback(null, true);
+    
+    // Cho phép nếu origin nằm trong whitelist
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
     }
+    
+    // Cho phép tất cả khi không phải production (dev local)
+    if (process.env.NODE_ENV !== 'production') {
+      return callback(null, true);
+    }
+    
+    // Chặn các origin không được phép
+    return callback(new Error('Not allowed by CORS'));
   },
   credentials: true
 }));
