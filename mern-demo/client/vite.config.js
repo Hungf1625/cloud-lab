@@ -4,12 +4,11 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  server: {                         
-    host: true,
-    port: 5173,
-    watch: {
-      usePolling: true
-    },
+    server: {
+      host: true,
+      port: 5173,
+      allowedHosts: ['mern-frontend-tranthienhung.onrender.com'],
+      watch: { usePolling: true },
     proxy: {                        
       '/api': {
         target: 'http://host.docker.internal:5000',
