@@ -44,9 +44,9 @@ connectDB();
 
 // Test route
 app.get('/api/hello', (req, res) => {
-    console.log(`Server đang hoạt động`);
+    console.log(`Server đang hoạt động 1.3 - deploy test`);
     res.json({ 
-        message: 'Server đang hoạt động',
+        message: 'Server đang hoạt động 1.3 - deploy test',
         status: 'success'
     });
 });
