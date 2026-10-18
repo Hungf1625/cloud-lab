@@ -51,6 +51,14 @@ app.get('/api/hello', (req, res) => {
     });
 });
 
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'UP',
+    timestamp: new Date(),
+    uptime: process.uptime()
+  });
+});
+
 // GET - Lấy tất cả students
 app.get("/api/students", async (req, res) => {
     try {

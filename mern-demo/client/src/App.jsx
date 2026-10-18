@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import StudentList from './components/studentsList';
 import AddStudentForm from './components/addStudentForm';
 
-const BASE_URL = import.meta.env.DEV 
-  ? ''  
-  : import.meta.env.VITE_API_URL; 
+const BASE_URL = import.meta.env.DEV
+  ? ''
+  : 'https://mern-backend-236356.onrender.com';
 
 const API_URL = `${BASE_URL}/api/students`;
 
